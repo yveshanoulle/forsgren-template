@@ -1,0 +1,19 @@
+# Publishes this installation's forsgren page once a day.
+# It calls forsgren's reusable workflow, pinned by the commit of release v0.0.1
+# (the comment names the release). To update forsgren, change the SHA, the
+# comment and forsgren-version together, to the same release.
+name: forsgren
+on:
+  schedule:
+    - cron: "17 5 * * *"   # once a day, 05:17 UTC
+  workflow_dispatch:
+permissions: {}
+jobs:
+  metrics:
+    permissions:
+      contents: read   # read this repository
+      pages: write     # publish to this repository's GitHub Pages
+      id-token: write  # lets actions/deploy-pages prove the run's identity
+    uses: yveshanoulle/forsgren/.github/workflows/metrics.yml@1997c4ff09aecd32c30fbdd7eef72485f146e865 # v0.0.1
+    with:
+      forsgren-version: v0.0.1

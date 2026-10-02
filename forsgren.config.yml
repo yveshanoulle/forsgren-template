@@ -1,0 +1,11 @@
+# forsgren configuration for this installation.
+#
+# Not read yet: forsgren 0.0.1 is a walking skeleton that publishes a page
+# saying "Forsgren 0.0.1". Later releases read this file to know which
+# repositories to measure and how. Until then it stays as it is.
+#
+# Planned (see https://github.com/yveshanoulle/forsgren/issues/6):
+#   repositories:
+#     - name: acme/app
+#       deployment: environment=production   # or workflow=<file>, or release
+#   failure: issues labelled "failure" with a failure record block
