@@ -28,3 +28,8 @@ From then on it runs every day by itself.
 
 In `.github/workflows/forsgren.yml`, change the commit SHA, the `# vX.Y.Z`
 comment and `forsgren-version` to the new release, together.
+
+## Licence
+
+The files in this template are under the [0BSD licence](LICENSE): use them
+as you like, no attribution needed. forsgren itself is EUPL-1.2.
