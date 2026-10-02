@@ -24,12 +24,15 @@ From then on it runs every day by itself.
 - `.github/workflows/forsgren.yml` — the daily run. It calls forsgren's
   reusable workflow at a pinned release.
 - `forsgren.config.yml` — your configuration, checked before every run.
-- `data/` — where forsgren will keep its history.
+- No `data/` yet: forsgren creates it when it first stores history, and never
+  overwrites history that is there.
 
 ## Updating forsgren
 
-In `.github/workflows/forsgren.yml`, change the commit SHA and the `# vX.Y.Z`
-comment to the new release, together.
+Change only the `uses:` line in `.github/workflows/forsgren.yml`, in this
+repository: the commit SHA and the `# vX.Y.Z` comment, to the new release,
+together. Never re-create the repository from the template to update: that
+loses `data/` and your secrets.
 
 ## Licence
 
