@@ -1,11 +1,24 @@
-# forsgren configuration for this installation.
+# forsgren configuration for this installation: which projects and
+# repositories the page measures. Replace the acme example with your own.
 #
-# Not read yet: forsgren 0.0.1 is a walking skeleton that publishes a page
-# saying "Forsgren 0.0.1". Later releases read this file to know which
-# repositories to measure and how. Until then it stays as it is.
+# forsgren 0.0.2 checks this file before every daily run: a missing or invalid
+# file turns the run red with a one-line message. Check it yourself with
+#   forsgren check-config --config forsgren.config.yml
+# (it does not measure anything yet; that comes in later releases).
 #
-# Planned (see https://github.com/yveshanoulle/forsgren/issues/6):
-#   repositories:
-#     - name: acme/app
-#       deployment: environment=production   # or workflow=<file>, or release
-#   failure: issues labelled "failure" with a failure record block
+# deployment, per repository, says what counts as a deployment:
+#   (left out)              GitHub Deployments to the environment production
+#   environment=<name>      GitHub Deployments to another environment
+#   workflow=<file>.yml     a successful run of that workflow on the default branch
+#   release                 a published GitHub Release
+version: 1
+projects:
+  - name: Acme Shop
+    repositories:
+      - name: acme/api
+      - name: acme/ios-app
+        deployment: workflow=testflight.yml
+  - name: Acme Tools
+    repositories:
+      - name: acme/cli
+        deployment: release
