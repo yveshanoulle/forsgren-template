@@ -1,7 +1,7 @@
 # Publishes this installation's forsgren page once a day.
 # It calls forsgren's reusable workflow, pinned by the commit of release v0.0.2
-# (the comment names the release). To update forsgren, change the SHA and the
-# comment together, to the same release.
+# (the comment names the release). A new forsgren-template carries the new
+# line: copying its files over this repository updates forsgren.
 name: forsgren
 on:
   schedule:
