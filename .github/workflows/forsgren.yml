@@ -10,6 +10,9 @@ on:
 permissions: {}
 jobs:
   metrics:
+    # Runs in your copy only: the template repository itself holds no
+    # configuration or data, so its own copy of this workflow does nothing.
+    if: github.repository != 'yveshanoulle/forsgren-template'
     permissions:
       contents: write  # commit a new install's starter forsgren.config.yml and the collected history in data/
       pages: write     # publish to this repository's GitHub Pages

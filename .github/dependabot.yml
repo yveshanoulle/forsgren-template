@@ -11,3 +11,8 @@ updates:
       interval: daily
     commit-message:
       prefix: forsgren
+    # A release is proposed once it is 3 days old: a window to replace a bad
+    # release before it reaches installations. Set default-days: 0 to get
+    # releases at the next daily check (forsgren#14).
+    cooldown:
+      default-days: 3
