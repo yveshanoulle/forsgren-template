@@ -1,0 +1,13 @@
+# Proposes each new forsgren release as a pull request: Dependabot moves the
+# pinned `uses: yveshanoulle/forsgren/.github/workflows/metrics.yml@<commit>
+# # vX.Y.Z` line in .github/workflows/forsgren.yml to the new release's commit
+# and tag. Merging that pull request is the one click that updates forsgren
+# (forsgren#14). It never touches forsgren.config.yml or data/.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: forsgren

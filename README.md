@@ -58,6 +58,8 @@ the run cannot commit.
 
 - `.github/workflows/forsgren.yml`: the daily run. It calls forsgren's
   reusable workflow at a pinned release.
+- `.github/dependabot.yml`: proposes each new forsgren release as a pull
+  request, your one-click update.
 - `README.md` and `LICENSE`: this text and its licence.
 
 What you add or the run writes, and what forsgren never overwrites:
@@ -69,14 +71,21 @@ What you add or the run writes, and what forsgren never overwrites:
 
 ## Installing a new version
 
-Copy the files of the new forsgren-template over your repository. That
-replaces forsgren's files (the workflow, with its new pinned release, and
-this README) and leaves `forsgren.config.yml` and `data/` as they are. Your
+**One click.** When forsgren publishes a release, Dependabot opens a pull
+request here that moves the pinned `uses:` line in
+`.github/workflows/forsgren.yml` to the new release (configured in
+`.github/dependabot.yml`). Merge it; the next run uses the new version. It never
+touches `forsgren.config.yml` or `data/`.
+
+**When a release changes more than that line** (a permission, a new secret),
+its release notes say so. Then copy the files of the new forsgren-template over
+your repository once: that replaces forsgren's files (the workflows, this
+README) and leaves `forsgren.config.yml` and `data/` as they are. Your
 repository keeps its secrets and its Pages address.
 
-Coming from v0.0.1 or v0.0.2: the new workflow asks for `contents: write`
-(the copied file already has it) and passes `FORSGREN_TOKEN`, so add that
-secret (Set up, step 2) before the next run.
+Coming from v0.0.1 or v0.0.2: copy the files once (v0.0.3 asks for
+`contents: write` and passes `FORSGREN_TOKEN`), and add that secret (Set up,
+step 2) before the next run.
 
 ## Licence
 
