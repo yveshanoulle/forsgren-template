@@ -17,6 +17,7 @@ jobs:
       contents: write  # commit a new install's starter forsgren.config.yml and the collected history in data/
       pages: write     # publish to this repository's GitHub Pages
       id-token: write  # lets actions/deploy-pages prove the run's identity
+      pull-requests: read  # optional: lets the page footer name Dependabot's waiting pull request for a newer forsgren release; without it the footer only says the release is available
     uses: yveshanoulle/forsgren/.github/workflows/metrics.yml@935129e2b6e1b1f1956741157fcf8fe524f30081 # v0.0.3
     secrets:
       FORSGREN_TOKEN: ${{ secrets.FORSGREN_TOKEN }}  # read-only token for the measured repositories
