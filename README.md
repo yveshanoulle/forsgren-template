@@ -58,8 +58,10 @@ the run cannot commit.
 
 - `.github/workflows/forsgren.yml`: the daily run. It calls forsgren's
   reusable workflow at a pinned release.
+- `.github/workflows/forsgren-update.yml`: merges Dependabot's forsgren pull
+  request for you when `forsgren.config.yml` says `auto_update: true`.
 - `.github/dependabot.yml`: proposes each new forsgren release as a pull
-  request, your one-click update.
+  request, every day at 04:00 UTC.
 - `README.md` and `LICENSE`: this text and its licence.
 
 What you add or the run writes, and what forsgren never overwrites:
@@ -71,17 +73,32 @@ What you add or the run writes, and what forsgren never overwrites:
 
 ## Installing a new version
 
-**One click.** When forsgren publishes a release, Dependabot opens a pull
-request here that moves the pinned `uses:` line in
-`.github/workflows/forsgren.yml` to the new release (configured in
-`.github/dependabot.yml`). Merge it; the next run uses the new version. It never
-touches `forsgren.config.yml` or `data/`.
+**One click, or none.** When forsgren publishes a release, Dependabot opens a
+pull request here that moves the pinned `uses:` lines in
+`.github/workflows/forsgren.yml` and `.github/workflows/forsgren-update.yml` to
+the new release (configured in `.github/dependabot.yml`). It never touches
+`forsgren.config.yml` or `data/`.
+
+- With `auto_update: true` in `forsgren.config.yml`, the pull request merges
+  itself and forsgren runs right after. `auto_update_level` sets how far an
+  update may go: `patch` (0.2.0 to 0.2.1), `minor` (to 0.3.0) or `major` (to
+  1.0.0). The starter config has `auto_update: true` and
+  `auto_update_level: patch`.
+- Anything else is left for you, with the reason in the run's summary. That
+  covers a bigger update than your level, a pull request that changes more
+  than the pin lines, or one that is not Dependabot's.
+- With `auto_update: false`, or no `auto_update` line, merge the pull request
+  yourself; the next run uses the new version.
 
 **When a release changes more than that line** (a permission, a new secret),
 its release notes say so. Then copy the files of the new forsgren-template over
 your repository once: that replaces forsgren's files (the workflows, this
 README) and leaves `forsgren.config.yml` and `data/` as they are. Your
 repository keeps its secrets and its Pages address.
+
+Coming from v0.1.3 or earlier: copy `.github/workflows/forsgren-update.yml`
+once, and add `auto_update: true` and `auto_update_level: patch` to
+`forsgren.config.yml` if you want updates to merge themselves (forsgren#58).
 
 Coming from v0.0.1 or v0.0.2: copy the files once (v0.0.3 asks for
 `contents: write` and passes `FORSGREN_TOKEN`), and add that secret (Set up,
