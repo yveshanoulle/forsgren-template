@@ -1,13 +1,16 @@
 # forsgren installation
 
 This repository publishes a [forsgren](https://github.com/yveshanoulle/forsgren)
-page for your projects, once a day, on GitHub Pages. forsgren measures the four
-DORA metrics from data GitHub already has.
+page for your projects, once a day, on GitHub Pages. forsgren measures the five
+DORA metrics from data GitHub already has: deployment frequency, lead time for
+changes, failed deployment recovery time, change fail rate and deployment rework
+rate, per project and per service.
 
-Today (forsgren 0.0.3) the page shows **deployment frequency** per project:
-successful production deployments in the last 7 days, the latest one, and the
-DORA band with its 30-day count. The other three metrics follow in later
-releases.
+The page has three views: **standard** (the DORA bands), **numbers** (the raw
+values) and **scoring** (each metric's DORA Quick Check score, 0 to 10, and
+Overall Performance). `view:` in your config chooses which one is the root page.
+The full documentation is in the
+[forsgren README](https://github.com/yveshanoulle/forsgren#readme).
 
 This template holds only forsgren's own files. Your configuration and your
 history are yours: they are never in the template, so installing a new
@@ -20,8 +23,8 @@ version never overwrites them.
 2. **Create a read-only token** for the repositories you want to measure:
    GitHub → Settings → Developer settings → Fine-grained tokens. Give it
    read-only **Deployments** (for `environment=`, the default), **Actions**
-   (for `workflow=`), **Contents** (for `release`) and **Issues** (failures,
-   later); Metadata is added by itself. Store it in your new repository under
+   (for `workflow=`), **Contents** (for `release`) and **Issues** (for
+   `failure` issues); Metadata is added by itself. Store it in your new repository under
    **Settings → Secrets and variables → Actions → New repository secret**,
    named `FORSGREN_TOKEN`.
 3. **Settings → Pages → Source: GitHub Actions**.
@@ -33,6 +36,11 @@ version never overwrites them.
 
    ```yaml
    version: 1
+   view: standard              # standard, numbers or scoring
+   auto_update: true           # Dependabot's forsgren pull requests merge themselves
+   auto_update_level: patch    # possible options: major, minor, patch
+   history_days: 365           # how far back history goes, 1 to 1825 days
+   history_chunk_days: 100     # how many days back each run adds, 1 to 365
    projects:
      - name: Acme Shop
        repositories:
@@ -68,8 +76,12 @@ What you add or the run writes, and what forsgren never overwrites:
 
 - `forsgren.config.yml`: your configuration. The first run writes a starter
   one if you have none; an existing file is never touched.
-- `data/`: your history (`data/deployments.csv`), written and committed by the
-  daily run as `github-actions[bot]`. forsgren only ever appends to it.
+- `data/`: your history, written and committed by the daily run as
+  `github-actions[bot]`: `deployments.csv`, `commits.csv` and `failures.csv`,
+  plus `reach.csv` (how far back each repository has been read) and
+  `failures_read.csv` (when its failure issues were last read). The first run
+  reads one chunk of `history_chunk_days`; each later run adds one older chunk
+  until `history_days` is reached. forsgren never deletes history.
 
 ## Installing a new version
 
