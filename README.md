@@ -109,13 +109,9 @@ your repository once: that replaces forsgren's files (the workflows, this
 README) and leaves `forsgren.config.yml` and `data/` as they are. Your
 repository keeps its secrets and its Pages address.
 
-Coming from v0.1.3 or earlier: copy `.github/workflows/forsgren-update.yml`
-once, and add `auto_update: true` and `auto_update_level: patch` to
-`forsgren.config.yml` if you want updates to merge themselves (forsgren#58).
-
-Coming from v0.0.1 or v0.0.2: copy the files once (v0.0.3 asks for
-`contents: write` and passes `FORSGREN_TOKEN`), and add that secret (Set up,
-step 2) before the next run.
+What an existing installation must do for a given release is in that
+release's notes on the
+[forsgren releases page](https://github.com/yveshanoulle/forsgren/releases).
 
 ## Licence
 
