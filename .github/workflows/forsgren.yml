@@ -1,5 +1,5 @@
 # Publishes this installation's forsgren page once a day.
-# It calls forsgren's reusable workflow, pinned by the commit of release v0.3.1
+# It calls forsgren's reusable workflow, pinned by the commit of release v0.3.2
 # (the comment names the release). A new forsgren-template carries the new
 # line: copying its files over this repository updates forsgren.
 name: forsgren
@@ -18,6 +18,6 @@ jobs:
       pages: write     # publish to this repository's GitHub Pages
       id-token: write  # lets actions/deploy-pages prove the run's identity
       pull-requests: read  # optional: lets the page footer name Dependabot's waiting pull request for a newer forsgren release; without it the footer only says the release is available
-    uses: yveshanoulle/forsgren/.github/workflows/metrics.yml@eaafe860b0ff56cfbfd47e3c17c2f897a93c70be # v0.3.1
+    uses: yveshanoulle/forsgren/.github/workflows/metrics.yml@886c2dfb9477d267916d6b57b1408e84a61463b8 # v0.3.2
     secrets:
       FORSGREN_TOKEN: ${{ secrets.FORSGREN_TOKEN }}  # read-only token for the measured repositories
