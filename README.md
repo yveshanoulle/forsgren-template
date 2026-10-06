@@ -41,6 +41,7 @@ version never overwrites them.
    auto_update_level: patch    # possible options: major, minor, patch
    history_days: 365           # how far back history goes, 1 to 1825 days
    history_chunk_days: 100     # how many days back each run adds, 1 to 365
+   working_hours: 8            # a working day is configured as this many hours, 1 to 24
    projects:
      - name: Acme Shop
        repositories:
