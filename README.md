@@ -8,7 +8,8 @@ rate, per project and per service.
 
 The page has three views: **standard** (the DORA bands), **numbers** (the raw
 values) and **scoring** (each metric's DORA Quick Check score, 0 to 10, and
-Overall Performance). `view:` in your config chooses which one is the root page.
+Overall Performance). `view:` in your config chooses which one is the root page. The legend page lists
+every setting with the value in use, marking the ones you haven't set.
 The full documentation is in the
 [forsgren README](https://github.com/yveshanoulle/forsgren#readme).
 
