@@ -64,6 +64,25 @@ commits them to `data/` and publishes the page. If your default branch
 refuses pushes from `github-actions[bot]`, allow it to bypass that rule, or
 the run cannot commit.
 
+The forsgren job in `.github/workflows/forsgren.yml` grants itself only what it
+needs, each permission declared explicitly:
+
+- `contents: write`: commit a new install's starter `forsgren.config.yml` and
+  the collected history in `data/`.
+- `pages: write` and `id-token: write`: publish to your GitHub Pages.
+- `pull-requests: read` (optional): lets the page footer name Dependabot's
+  waiting pull request for a newer forsgren release.
+- `issues: write`: lets forsgren open its setup issue (below). Without it the
+  run still succeeds; its job summary and the page footer say what is missing.
+
+**The setup issue.** When a forsgren version needs more of your installation (a
+permission, a secret, a file or a config key), forsgren opens one issue in this
+repository, labelled `forsgren-setup`, listing the steps. It is one issue, not
+one per version, and it closes itself once everything is in place. The check
+reads the permissions from the forsgren job in `forsgren.yml`, so declare them
+explicitly there: `write-all` and `read-all` are not supported, in keeping with
+least privilege.
+
 ## What is in here
 
 - `.github/workflows/forsgren.yml`: the daily run. It calls forsgren's
