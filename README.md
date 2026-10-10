@@ -10,6 +10,8 @@ The page has three views: **standard** (the DORA bands), **numbers** (the raw
 values) and **scoring** (each metric's DORA Quick Check score, 0 to 10, and
 Overall Performance). `view:` in your config chooses which one is the root page. The settings page
 lists every setting with the value in use, marking the ones you haven't set.
+The issues page, linked next to the views, shows per day how many issues were
+opened and completed across all your projects, yesterday first.
 The full documentation is in the
 [forsgren README](https://github.com/yveshanoulle/forsgren#readme).
 
@@ -98,8 +100,9 @@ What you add or the run writes, and what forsgren never overwrites:
 - `forsgren.config.yml`: your configuration. The first run writes a starter
   one if you have none; an existing file is never touched.
 - `data/`: your history, written and committed by the daily run as
-  `github-actions[bot]`: `deployments.csv`, `commits.csv` and `failures.csv`,
-  plus `reach.csv` (how far back each repository has been read) and
+  `github-actions[bot]`: `deployments.csv`, `commits.csv`, `failures.csv` and
+  `issues.csv` (what happened to every issue, for the issues page), plus
+  `reach.csv` (how far back each repository has been read) and
   `failures_read.csv` (when its failure issues were last read). The first run
   reads one chunk of `history_chunk_days`; each later run adds one older chunk
   until `history_days` is reached. forsgren never deletes history.
