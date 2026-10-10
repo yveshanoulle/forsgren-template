@@ -1,6 +1,6 @@
 # Lets Dependabot's forsgren pull requests merge themselves (forsgren#58).
 # It calls forsgren's reusable auto_update.yml, pinned by the commit of release
-# v0.4.1, the same commit as forsgren.yml: Dependabot moves both lines together.
+# v0.4.2, the same commit as forsgren.yml: Dependabot moves both lines together.
 # forsgren check-update merges only a pull request by Dependabot that moves
 # just these two pins to a published release, within auto_update_level, and
 # only when forsgren.config.yml on your default branch says auto_update: true.
@@ -17,4 +17,4 @@ jobs:
       contents: write       # merge the pull request
       pull-requests: write  # merge the pull request
       actions: write        # start forsgren.yml after the merge
-    uses: yveshanoulle/forsgren/.github/workflows/auto_update.yml@0cb6227fc12bf1508271c7517f03e7979f71d27b # v0.4.1
+    uses: yveshanoulle/forsgren/.github/workflows/auto_update.yml@887ea28abc4d523606ee66230d2d4bc5d6b0bbdc # v0.4.2
