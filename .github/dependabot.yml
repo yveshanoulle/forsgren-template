@@ -9,9 +9,11 @@ version: 2
 updates:
   - package-ecosystem: github-actions
     directory: /
+    # Every day, weekends included: interval daily runs Monday to Friday
+    # only, so a release on a Friday evening waited until Monday.
     schedule:
-      interval: daily
-      time: "04:00"      # before the daily forsgren run
+      interval: cron
+      cronjob: "0 4 * * *"   # 04:00, before the daily forsgren run
       timezone: UTC
     commit-message:
       prefix: forsgren
