@@ -12,7 +12,9 @@ Overall Performance). `view:` in your config chooses which one is the root page.
 lists every setting with the value in use, marking the ones you haven't set.
 The issues page, linked next to the views, shows per day how many issues were
 opened and how many were closed as completed, not planned, duplicate or other,
-across all your projects, yesterday first.
+across all your projects, yesterday first, and in the last column, Total, how
+many issues were still open at the end of each day. The first run after an
+update reads every issue once, so the page has its history back to the first issue.
 The full documentation is in the
 [forsgren README](https://github.com/yveshanoulle/forsgren#readme).
 
