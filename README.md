@@ -11,7 +11,8 @@ values) and **scoring** (each metric's DORA Quick Check score, 0 to 10, and
 Overall Performance). `view:` in your config chooses which one is the root page. The settings page
 lists every setting with the value in use, marking the ones you haven't set.
 The issues page, linked next to the views, shows per day how many issues were
-opened and completed across all your projects, yesterday first.
+opened and how many were closed as completed, not planned, duplicate or other,
+across all your projects, yesterday first.
 The full documentation is in the
 [forsgren README](https://github.com/yveshanoulle/forsgren#readme).
 
