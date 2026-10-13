@@ -16,7 +16,8 @@ all your projects, and in the last column, Total, how many issues were still
 open at the end of each day. It has one row per day for the last 30 days,
 newest first. The months page, linked next to it, shows the same columns over
 longer periods: the days of the current week up to yesterday, then the weeks
-of the current month, then every complete month back to your first issue.
+of the current month, then the complete months of the current year, then one
+row per earlier year back to your first issue.
 The first run after an update reads every issue once, so both pages have their
 history back to the first issue.
 Rows where nothing happened (no new issue, no close, no reopen) are left out; when
