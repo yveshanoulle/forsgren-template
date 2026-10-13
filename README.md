@@ -15,6 +15,8 @@ opened and how many were closed as completed, not planned, duplicate or other,
 across all your projects, yesterday first, and in the last column, Total, how
 many issues were still open at the end of each day. The first run after an
 update reads every issue once, so the page has its history back to the first issue.
+Days where nothing happened (no new issue, no close, no reopen) are left out; when
+nothing happened in the last 30 days, the page says so in one line.
 The full documentation is in the
 [forsgren README](https://github.com/yveshanoulle/forsgren#readme).
 
