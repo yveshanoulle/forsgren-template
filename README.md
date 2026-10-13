@@ -10,13 +10,15 @@ The page has three views: **standard** (the DORA bands), **numbers** (the raw
 values) and **scoring** (each metric's DORA Quick Check score, 0 to 10, and
 Overall Performance). `view:` in your config chooses which one is the root page. The settings page
 lists every setting with the value in use, marking the ones you haven't set.
-The issues page, linked next to the views, shows per day how many issues were
-opened and how many were closed as completed, not planned, duplicate or other,
-across all your projects, yesterday first, and in the last column, Total, how
-many issues were still open at the end of each day. The first run after an
+The issues page, linked next to the views, shows how many issues were opened
+and how many were closed as completed, not planned, duplicate or other, across
+all your projects, and in the last column, Total, how many issues were still
+open at the end of each period. Its rows, newest first: the days of the current
+week up to yesterday, then the complete weeks that touch the current month,
+then every complete month back to your first issue. The first run after an
 update reads every issue once, so the page has its history back to the first issue.
-Days where nothing happened (no new issue, no close, no reopen) are left out; when
-nothing happened in the last 30 days, the page says so in one line.
+Rows where nothing happened (no new issue, no close, no reopen) are left out; when
+nothing happened at all, the page says so in one line.
 The full documentation is in the
 [forsgren README](https://github.com/yveshanoulle/forsgren#readme).
 
