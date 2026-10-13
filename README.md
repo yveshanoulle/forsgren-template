@@ -13,11 +13,12 @@ Overall Performance). `view:` in your config chooses which one is the root page.
 lists every setting with the value in use, marking the ones you haven't set.
 The Daily page, in the menu at the top of every page, shows how many issues
 were opened and how many were closed as completed, not planned, duplicate or
-other, across all your projects, and in the last column, Total, how many issues
-were still open at the end of each day. It has one row per day for the last 30
+other, across all your projects; then Open, how many issues were still open at
+the end of each day; Total, how many issues had been created by then, open or
+closed; and Open / Total as a percentage. It has one row per day for the last 30
 days, newest first. The Issues page, next to it in the menu, shows the same
-columns over longer periods: the days of the current week up to yesterday, then the weeks
-of the current month, then the complete months of the current year, then one
+columns over longer periods: the days of the current week up to yesterday, then
+the weeks of the current month, then the complete months of the current year, then one
 row per earlier year back to your first issue.
 The first run after an update reads every issue once, so both pages have their
 history back to the first issue.
