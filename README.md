@@ -13,10 +13,12 @@ lists every setting with the value in use, marking the ones you haven't set.
 The issues page, linked next to the views, shows how many issues were opened
 and how many were closed as completed, not planned, duplicate or other, across
 all your projects, and in the last column, Total, how many issues were still
-open at the end of each period. Its rows, newest first: the days of the current
-week up to yesterday, then the complete weeks that touch the current month,
-then every complete month back to your first issue. The first run after an
-update reads every issue once, so the page has its history back to the first issue.
+open at the end of each day. It has one row per day for the last 30 days,
+newest first. The months page, linked next to it, shows the same columns over
+longer periods: the days of the current week up to yesterday, then the weeks
+of the current month, then every complete month back to your first issue.
+The first run after an update reads every issue once, so both pages have their
+history back to the first issue.
 Rows where nothing happened (no new issue, no close, no reopen) are left out; when
 nothing happened at all, the page says so in one line.
 The full documentation is in the
@@ -108,7 +110,7 @@ What you add or the run writes, and what forsgren never overwrites:
   one if you have none; an existing file is never touched.
 - `data/`: your history, written and committed by the daily run as
   `github-actions[bot]`: `deployments.csv`, `commits.csv`, `failures.csv` and
-  `issues.csv` (what happened to every issue, for the issues page), plus
+  `issues.csv` (what happened to every issue, for the issues and months pages), plus
   `reach.csv` (how far back each repository has been read) and
   `failures_read.csv` (when its failure issues were last read). The first run
   reads one chunk of `history_chunk_days`; each later run adds one older chunk
