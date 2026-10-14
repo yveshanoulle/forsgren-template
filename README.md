@@ -30,7 +30,10 @@ every issue, so both pages have their history back to the first issue.
 Rows where nothing happened (no new issue, no close, no reopen) are left out; when
 nothing happened at all, the page says so in one line.
 The full documentation is in the
-[forsgren README](https://github.com/yveshanoulle/forsgren#readme).
+[forsgren README](https://github.com/yveshanoulle/forsgren#readme), which lists
+the docs; the
+[configuration reference](https://github.com/yveshanoulle/forsgren/blob/main/docs/configuration.md)
+is the one to open first.
 
 This template holds only forsgren's own files. Your configuration and your
 history are yours: they are never in the template, so installing a new
