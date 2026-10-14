@@ -65,6 +65,8 @@ version never overwrites them.
    history_days: 365           # how far back history goes, 1 to 1825 days
    history_chunk_days: 100     # how many days back each run adds, 1 to 365
    working_hours: 8            # a working day is configured as this many hours, 1 to 24
+   issues_page: true           # the Issues page: true or false (default true)
+   days_page: false            # the Daily page: true or false (default false)
    projects:
      - name: Acme Shop
        repositories:
@@ -80,6 +82,9 @@ version never overwrites them.
 
    `environment=<name>` is the form for another environment. The daily run
    refuses an invalid file with a one-line message.
+
+   The Daily page is hidden by default (forsgren 1.3.0): set `days_page: true`
+   to show it. The Issues page is shown unless you set `issues_page: false`.
 
 From then on it runs every day by itself: it collects the new deployments,
 commits them to `data/` and publishes the page. If your default branch
@@ -144,6 +149,9 @@ the new release (configured in `.github/dependabot.yml`). It never touches
   it does not mean a major release is safe. Nothing checks a release against
   your installation's own data. To take fewer updates, set `auto_update_level`
   to `minor` or `patch`.
+- Upgrading to forsgren 1.3.0 hides the Daily page of an installation that does
+  not set `days_page`; add `days_page: true` to `forsgren.config.yml` to keep
+  it.
 - Anything else is left for you, with the reason in the run's summary. That
   covers a bigger update than your level, a pull request that changes more
   than the pin lines, or one that is not Dependabot's.
