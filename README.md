@@ -128,8 +128,10 @@ What you add or the run writes, and what forsgren never overwrites:
   `github-actions[bot]`: `deployments.csv`, `commits.csv`, `failures.csv` and
   `issues.csv` (what happened to every issue, for the issues and months pages),
   `issue_bugs.csv` (which issues carry the `bug` label, for Open bugs), plus
-  `reach.csv` (how far back each repository has been read) and
-  `failures_read.csv` (when its failure issues were last read). The first run
+  `reach.csv` (how far back each repository has been read),
+  `failures_read.csv` (when its failure issues were last read) and
+  `issue_bugs_cut.csv` (which repositories' bug reads stopped at the page cap,
+  so Open bugs shows as incomplete). The first run
   reads one chunk of `history_chunk_days`; each later run adds one older chunk
   until `history_days` is reached. forsgren never deletes history.
 
