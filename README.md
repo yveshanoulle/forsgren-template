@@ -61,7 +61,7 @@ version never overwrites them.
    version: 1
    view: standard              # standard, numbers or scoring
    auto_update: true           # Dependabot's forsgren pull requests merge themselves
-   auto_update_level: patch    # possible options: major, minor, patch
+   auto_update_level: major    # possible options: major, minor, patch
    history_days: 365           # how far back history goes, 1 to 1825 days
    history_chunk_days: 100     # how many days back each run adds, 1 to 365
    working_hours: 8            # a working day is configured as this many hours, 1 to 24
@@ -140,7 +140,10 @@ the new release (configured in `.github/dependabot.yml`). It never touches
   itself and forsgren runs right after. `auto_update_level` sets how far an
   update may go: `patch` (0.2.0 to 0.2.1), `minor` (to 0.3.0) or `major` (to
   1.0.0). The starter config has `auto_update: true` and
-  `auto_update_level: patch`.
+  `auto_update_level: major`. `major` permits major, minor and patch updates;
+  it does not mean a major release is safe. Nothing checks a release against
+  your installation's own data. To take fewer updates, set `auto_update_level`
+  to `minor` or `patch`.
 - Anything else is left for you, with the reason in the run's summary. That
   covers a bigger update than your level, a pull request that changes more
   than the pin lines, or one that is not Dependabot's.
