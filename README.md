@@ -10,18 +10,23 @@ The page has three views: **standard** (the DORA bands), **numbers** (the raw
 values), both with a column of weekend deployments next to deployment
 frequency, and **scoring** (each metric's DORA Quick Check score, 0 to 10, and
 Overall Performance). `view:` in your config chooses which one is the root page. The settings page
-lists every setting with the value in use, marking the ones you haven't set.
+is a table with, for every setting, the value in use, the possible values and the default;
+Default says True when your config doesn't set the key.
 The Daily page, in the menu at the top of every page, shows how many issues
 were opened and how many were closed as completed, not planned, duplicate or
 other, across all your projects; then Open, how many issues were still open at
-the end of each day; Total, how many issues had been created by then, open or
-closed; and Open / Total as a percentage. It has one row per day for the last 30
+the end of each day; Open bugs, how many of those carry the GitHub `bug` label
+(the label as it is now, applied to the whole history); Total, how many issues had been created by then, open or
+closed; and Open / Total as a percentage. Open and Open bugs show an arrow after each
+count: red up (▲ +3) when it rose, green down (▼ −2) when it fell, grey (–) when
+it did not change, against the previous period of the same kind. Red and green
+mean rose and fell, not worse and better. It has one row per day for the last 30
 days, newest first. The Issues page, next to it in the menu, shows the same
 columns over longer periods: the days of the current week up to yesterday, then
 the weeks of the current month, then the complete months of the current year, then one
 row per earlier year back to your first issue.
-The first run after an update reads every issue once, so both pages have their
-history back to the first issue.
+The first run after an update reads every issue once, and the bug label of
+every issue, so both pages have their history back to the first issue.
 Rows where nothing happened (no new issue, no close, no reopen) are left out; when
 nothing happened at all, the page says so in one line.
 The full documentation is in the
@@ -113,7 +118,8 @@ What you add or the run writes, and what forsgren never overwrites:
   one if you have none; an existing file is never touched.
 - `data/`: your history, written and committed by the daily run as
   `github-actions[bot]`: `deployments.csv`, `commits.csv`, `failures.csv` and
-  `issues.csv` (what happened to every issue, for the issues and months pages), plus
+  `issues.csv` (what happened to every issue, for the issues and months pages),
+  `issue_bugs.csv` (which issues carry the `bug` label, for Open bugs), plus
   `reach.csv` (how far back each repository has been read) and
   `failures_read.csv` (when its failure issues were last read). The first run
   reads one chunk of `history_chunk_days`; each later run adds one older chunk
