@@ -129,7 +129,11 @@ What you add or the run writes, and what forsgren never overwrites:
   `issues.csv` (what happened to every issue, for the issues and months pages),
   `issue_bugs.csv` (which issues carry the `bug` label, for Open bugs), plus
   `reach.csv` (how far back each repository has been read),
-  `failures_read.csv` (when its failure issues were last read) and
+  `failures_read.csv` (when its failure issues were last read),
+  `failures_withdrawn.csv` (failure issues that no longer count: the label was
+  removed, the issue was closed as not planned, or it is gone),
+  `issues_full.csv` (which repositories had their one full read of every
+  issue, for the historical Open and Total) and
   `issue_bugs_cut.csv` (which repositories' bug reads stopped at the page cap,
   so Open bugs shows as incomplete). The first run
   reads one chunk of `history_chunk_days`; each later run adds one older chunk
