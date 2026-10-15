@@ -11,7 +11,7 @@ values), both with a column of weekend deployments next to deployment
 frequency, and **scoring** (each metric's DORA Quick Check score, 0 to 10, and
 Overall Performance). `view:` in your config chooses which one is the root page. The settings page
 is a table with, for every setting, the value in use, the possible values and the default;
-Default says True when your config doesn't set the key.
+Default shows the default value; a key your config leaves out reads "(not set)".
 The Daily page, in the menu at the top of every page, shows how many issues
 were opened and how many were closed as completed, not planned, duplicate or
 other, across all your projects; then Open, how many issues were still open at
