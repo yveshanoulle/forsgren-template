@@ -62,7 +62,8 @@ version never overwrites them.
    view: standard              # standard, numbers or scoring
    auto_update: true           # Dependabot's forsgren pull requests merge themselves
    auto_update_level: major    # possible options: major, minor, patch
-   history_days: 365           # how far back history goes, 1 to 1825 days
+   history_days: 365           # how far back history goes, 30 to 1825 days
+   dora_days: 30               # the window of the five DORA metrics: 30, 90 or 180 days
    history_chunk_days: 100     # how many days back each run adds, 1 to 365
    working_hours: 8            # a working day is configured as this many hours, 1 to 24
    issues_page: true           # the Issues page: true or false (default true)
@@ -81,7 +82,7 @@ version never overwrites them.
    ```
 
    `environment=<name>` is the form for another environment. The daily run
-   refuses an invalid file with a one-line message.
+   refuses an invalid file with a one-line message; a setting it does not accept is not an invalid file: the run uses the default and the settings page and the log say so.
 
    The Daily page is hidden by default (forsgren 1.3.0): set `days_page: true`
    to show it. The Issues page is shown unless you set `issues_page: false`.
