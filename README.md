@@ -69,7 +69,7 @@ version never overwrites them.
    issues_page: true           # the Issues page: true or false (default true)
    days_page: false            # the Daily page: true or false (default false)
    numbers_scoring_page: false   # the Numbers and scoring page: false leaves it out, true shows it
-   history_page: true            # the History page: true or false (default true)
+   history_page: false           # the History page: true or false (default false)
    projects:
      - name: Acme Shop
        repositories:
@@ -87,7 +87,7 @@ version never overwrites them.
    refuses an invalid file with a one-line message; a setting it does not accept is not an invalid file: the run uses the default and the settings page and the log say so.
 
    The Daily page is hidden by default (forsgren 1.3.0): set `days_page: true`
-   to show it. The Issues page is shown unless you set `issues_page: false`. The History page is shown unless you set `history_page: false`.
+   to show it. The Issues page is shown unless you set `issues_page: false`. The History page is shown only with `history_page: true`.
 
 From then on it runs every day by itself: it collects the new deployments,
 commits them to `data/` and publishes the page. If your default branch
