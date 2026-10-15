@@ -66,10 +66,10 @@ version never overwrites them.
    dora_days: 30               # the window of the five DORA metrics: 30, 90 or 180 days
    history_chunk_days: 100     # how many days back each run adds, 1 to 365
    working_hours: 8            # a working day is configured as this many hours, 1 to 24
-   issues_page: true           # the Issues page: true or false (default true)
-   days_page: false            # the Daily page: true or false (default false)
-   numbers_scoring_page: false   # the Numbers and scoring page: false leaves it out, true shows it
-   history_page: false           # the History page: true or false (default false)
+   issues_page: true           # the Issues page: true, unlisted or false (default true)
+   days_page: false            # the Daily page: true, unlisted or false (default false)
+   numbers_scoring_page: unlisted   # the Numbers and scoring page: true, unlisted or false (default unlisted)
+   history_page: unlisted          # the History page: true, unlisted or false (default unlisted)
    projects:
      - name: Acme Shop
        repositories:
@@ -87,7 +87,7 @@ version never overwrites them.
    refuses an invalid file with a one-line message; a setting it does not accept is not an invalid file: the run uses the default and the settings page and the log say so.
 
    The Daily page is hidden by default (forsgren 1.3.0): set `days_page: true`
-   to show it. The Issues page is shown unless you set `issues_page: false`. The History page is shown only with `history_page: true`.
+   to show it. The Issues page is shown unless you set `issues_page: false`. The History page and the Numbers and scoring page are generated but left out of the menu by default (`unlisted`); set `true` to list them or `false` to leave them out.
 
 From then on it runs every day by itself: it collects the new deployments,
 commits them to `data/` and publishes the page. If your default branch
