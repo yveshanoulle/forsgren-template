@@ -105,7 +105,7 @@ needs, each permission declared explicitly:
 **The setup issue.** When a forsgren version needs more of your installation (a
 permission, a secret, a file or a config key), forsgren opens one issue in this
 repository, labelled `forsgren-setup`, listing the steps. It is one issue, not
-one per version, and it closes itself once everything is in place. The check
+one per version, and it closes itself once everything is in place. It also tells you when `FORSGREN_TOKEN` is within 14 days of expiring, with the date and the command `gh secret set FORSGREN_TOKEN -R <repo>`; the daily run warns in its log too. The check
 reads the permissions from the forsgren job in `forsgren.yml`, so declare them
 explicitly there: `write-all` and `read-all` are not supported, in keeping with
 least privilege.
