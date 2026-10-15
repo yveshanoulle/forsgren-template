@@ -68,6 +68,7 @@ version never overwrites them.
    working_hours: 8            # a working day is configured as this many hours, 1 to 24
    issues_page: true           # the Issues page: true or false (default true)
    days_page: false            # the Daily page: true or false (default false)
+   numbers_scoring_page: false   # the Numbers and scoring page: false leaves it out, true shows it
    projects:
      - name: Acme Shop
        repositories:
