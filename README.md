@@ -1,6 +1,6 @@
 # forsgren installation
 
-This README is forsgren's file, written by the daily run for forsgren 1.13.1: a change you make here is overwritten.
+This README is forsgren's file, written by the daily run for forsgren 1.14.0: a change you make here is overwritten.
 
 This repository publishes a [forsgren](https://github.com/yveshanoulle/forsgren)
 page for your projects, once a day, on GitHub Pages. forsgren measures the five
@@ -70,10 +70,11 @@ version never overwrites them.
    dora_days: 30               # the window of the five DORA metrics: 30, 90 or 180 days
    history_chunk_days: 100     # how many days back each run adds, 1 to 365
    working_hours: 8            # a working day is configured as this many hours, 1 to 24
-   issues_page: true           # the Issues page: true, unlisted or false (default true)
+   issues_page: false          # the Issues page: true, unlisted or false (default true)
    days_page: false            # the Daily page: true, unlisted or false (default false)
    numbers_scoring_page: unlisted   # the Numbers and scoring page: true, unlisted or false (default unlisted)
    history_page: unlisted          # the History page: true, unlisted or false (default unlisted)
+   tbd_page: unlisted              # the TBD page: true, unlisted or false (default unlisted)
    projects:
      - name: Acme Shop
        repositories:
@@ -91,7 +92,7 @@ version never overwrites them.
    refuses an invalid file with a one-line message; a setting it does not accept is not an invalid file: the run uses the default and the settings page and the log say so.
 
    The Daily page is hidden by default (forsgren 1.3.0): set `days_page: true`
-   to show it. The Issues page is shown unless you set `issues_page: false`. The History page and the Numbers and scoring page are generated but left out of the menu by default (`unlisted`); set `true` to list them or `false` to leave them out.
+   to show it. The starter turns the Issues page off (`issues_page: false`): set `issues_page: true` to show it; a config that leaves the key out shows it. The History page, the Numbers and scoring page and the TBD page are generated but left out of the menu by default (`unlisted`); set `true` to list them or `false` to leave them out.
 
 From then on it runs every day by itself: it collects the new deployments,
 commits them to `data/`, keeps this README current for the forsgren version it
@@ -145,7 +146,10 @@ What you add or the run writes, and what forsgren never overwrites:
   `issues_full.csv` (which repositories had their one full read of every
   issue, for the historical Open and Total) and
   `issue_bugs_cut.csv` (which repositories' bug reads stopped at the page cap,
-  so Open bugs shows as incomplete). The first run
+  so Open bugs shows as incomplete) and
+  `cut_runs.csv` (which repositories the request budget cut short without
+  progress) and `starts_checked.csv` (which repositories had their failure
+  starts caught up from the issues' comments). The first run
   reads one chunk of `history_chunk_days`; each later run adds one older chunk
   until `history_days` is reached. forsgren never deletes history.
 
