@@ -1,6 +1,6 @@
 # forsgren installation
 
-This README is forsgren's file, written by the daily run for forsgren 1.17.0: a change you make here is overwritten.
+This README is forsgren's file, written by the daily run for forsgren 1.18.0: a change you make here is overwritten.
 
 This repository publishes a [forsgren](https://github.com/yveshanoulle/forsgren)
 page for your projects, once a day, on GitHub Pages. forsgren measures the five
@@ -153,7 +153,9 @@ What you add or the run writes, and what forsgren never overwrites:
   so Open bugs shows as incomplete) and
   `cut_runs.csv` (which repositories the request budget cut short without
   progress) and `starts_checked.csv` (which repositories had their failure
-  starts caught up from the issues' comments). The first run
+  starts caught up from the issues' comments) and `commits_backfilled.csv`
+  (which repositories had the author, parents and committer date of their
+  legacy commits backfilled). The first run
   reads one chunk of `history_chunk_days`; each later run adds one older chunk
   until `history_days` is reached. forsgren never deletes history.
 
