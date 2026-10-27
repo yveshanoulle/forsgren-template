@@ -19,6 +19,6 @@ jobs:
       id-token: write  # lets actions/deploy-pages prove the run's identity
       pull-requests: read  # lets forsgren collect merged pull requests for PR Lead Time and Bot PR Lead Time (from 1.15.0) and the page footer name Dependabot's waiting pull request; without it collect still stores everything else and the setup issue names it
       issues: write  # lets forsgren open its setup issue when this version needs more configuration; without it, the job summary and page footer say so
-    uses: yveshanoulle/forsgren/.github/workflows/metrics.yml@a0180c592a2918cc1ee9ba9c195e5aa5c47dd387 # v1.26.8
+    uses: yveshanoulle/forsgren/.github/workflows/metrics.yml@0b2dd7a797dd8b2f39be948ee4d25fe17f67b653 # v1.27.0
     secrets:
       FORSGREN_TOKEN: ${{ secrets.FORSGREN_TOKEN }}  # read-only token for the measured repositories
