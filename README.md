@@ -1,6 +1,6 @@
 # forsgren installation
 
-This README is forsgren's file, written by the daily run for forsgren 1.31.7: a change you make here is overwritten.
+This README is forsgren's file, written by the daily run for forsgren 1.31.8: a change you make here is overwritten.
 
 This repository publishes a [forsgren](https://github.com/yveshanoulle/forsgren)
 page for your projects, once a day, on GitHub Pages. forsgren measures the five
